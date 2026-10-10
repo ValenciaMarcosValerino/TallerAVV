@@ -1,4 +1,8 @@
 
+/* ====================================
+   ESTILOS GENERALES - TALLER AVV
+==================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,17 +11,41 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-width: 320px;
+  width: 100%;
+  min-height: 100vh;
   background: #ffffff;
   color: #222222;
-  min-width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 button,
 input,
 textarea {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
