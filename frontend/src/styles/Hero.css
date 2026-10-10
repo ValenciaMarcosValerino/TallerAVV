@@ -1,0 +1,344 @@
+
+/* ========================================
+   TALLER DE ARQUITECTURA AVV
+   HERO MINIMALISTA
+======================================== */
+
+/* CONTENEDOR PRINCIPAL */
+
+.hero {
+  display: block;
+  width: 100%;
+  min-height: 680px;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f2;
+  color: #161616;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  width: 100%;
+  max-width: 1600px;
+  min-height: 680px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   INFORMACIÓN IZQUIERDA
+======================================== */
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  min-width: 0;
+  padding: 80px 8%;
+}
+
+/* NOMBRE DE LA EMPRESA */
+
+.hero-subtitulo {
+  margin-bottom: 28px;
+  color: #777777;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+/* TÍTULO */
+
+.hero .hero-titulo {
+  margin: 0 0 28px;
+  color: #161616;
+  font-size: clamp(32px, 3.7vw, 58px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  overflow-wrap: break-word;
+}
+
+/* DESCRIPCIÓN */
+
+.hero-descripcion {
+  max-width: 490px;
+  color: #606060;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.hero-botones {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.hero-btn-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding: 16px 24px;
+  border: 1px solid #111111;
+  background: #111111;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero-btn-principal:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+.hero-btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 24px;
+  border: 1px solid #333333;
+  background: transparent;
+
+  color: #222222;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.hero-btn-secundario:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* TEXTO INFERIOR */
+
+.hero-detalle {
+  margin-top: 65px;
+  color: #888888;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* ========================================
+   FOTOGRAFÍA DERECHA
+======================================== */
+
+.hero-imagen-container {
+  position: relative;
+  width: 100%;
+  min-height: 680px;
+  overflow: hidden;
+  background: #242424;
+}
+
+.hero-imagen {
+  display: block;
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.7s ease;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+
+.hero-imagen-container:hover .hero-imagen {
+  transform: scale(1.035);
+}
+
+/* ETIQUETA SOBRE LA IMAGEN */
+
+.hero-imagen-etiqueta {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.94);
+
+  color: #111111;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+/* ========================================
+   TABLETAS
+======================================== */
+
+@media (max-width: 1050px) {
+
+  .hero,
+  .hero-container {
+    min-height: 590px;
+  }
+
+  .hero-info {
+    padding: 65px 7%;
+  }
+
+  .hero .hero-titulo {
+    font-size: clamp(29px, 3.8vw, 44px);
+  }
+
+  .hero-descripcion {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .hero-imagen-container {
+    min-height: 590px;
+  }
+
+  .hero-detalle {
+    margin-top: 45px;
+  }
+}
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: 0;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero-info {
+    padding: 60px 7% 50px;
+  }
+
+  .hero-subtitulo {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+  }
+
+  .hero .hero-titulo {
+    font-size: clamp(30px, 8vw, 43px);
+    line-height: 1.18;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+  }
+
+  .hero-descripcion {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .hero-botones {
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .hero-btn-principal,
+  .hero-btn-secundario {
+    padding: 14px 18px;
+    font-size: 13px;
+  }
+
+  .hero-detalle {
+    margin-top: 40px;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+  }
+
+  /* FOTO DEBAJO DEL TEXTO */
+
+  .hero-imagen-container {
+    width: 100%;
+    height: 55vh;
+    min-height: 320px;
+    max-height: 500px;
+  }
+
+  .hero-imagen {
+    object-position: center;
+  }
+
+  .hero-imagen-etiqueta {
+    right: 14px;
+    bottom: 14px;
+    padding: 10px 12px;
+    font-size: 9px;
+  }
+}
+
+/* ========================================
+   CELULARES PEQUEÑOS
+======================================== */
+
+@media (max-width: 380px) {
+
+  .hero-info {
+    padding: 50px 6%;
+  }
+
+  .hero .hero-titulo {
+    font-size: 29px;
+  }
+
+  .hero-botones {
+    width: 100%;
+  }
+
+  .hero-btn-principal,
+  .hero-btn-secundario {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+.hero-btn-principal:focus-visible,
+.hero-btn-secundario:focus-visible {
+  outline: 3px solid #258cce;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-imagen,
+  .hero-btn-principal,
+  .hero-btn-secundario {
+    transition: none;
+  }
+}
