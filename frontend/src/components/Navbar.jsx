@@ -1,9 +1,16 @@
 
 import { useEffect, useState } from 'react';
+
+import {
+  Link,
+  useLocation,
+} from 'react-router-dom';
+
 import logoAVV from '../assets/LogoAVV.jpeg';
 
 function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const location = useLocation();
 
   const alternarMenu = () => {
     setMenuAbierto((anterior) => !anterior);
@@ -13,47 +20,95 @@ function Navbar() {
     setMenuAbierto(false);
   };
 
-  // Bloquear el desplazamiento mientras el menú esté abierto.
+  // Cerrar el panel cuando cambie la página
+  useEffect(() => {
+    setMenuAbierto(false);
+  }, [location.pathname, location.hash]);
+
+  // Evitar que el fondo se desplace
   useEffect(() => {
     if (!menuAbierto) return;
 
-    const overflowAnterior = document.body.style.overflow;
+    const overflowAnterior =
+      document.body.style.overflow;
+
     document.body.style.overflow = 'hidden';
 
-    const manejarTeclado = (evento) => {
+    const manejarTecla = (evento) => {
       if (evento.key === 'Escape') {
         cerrarMenu();
       }
     };
 
-    window.addEventListener('keydown', manejarTeclado);
+    window.addEventListener(
+      'keydown',
+      manejarTecla
+    );
 
     return () => {
-      document.body.style.overflow = overflowAnterior;
-      window.removeEventListener('keydown', manejarTeclado);
+      document.body.style.overflow =
+        overflowAnterior;
+
+      window.removeEventListener(
+        'keydown',
+        manejarTecla
+      );
     };
   }, [menuAbierto]);
+
+  // Desplazarse a la sección seleccionada
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'auto',
+      });
+
+      return;
+    }
+
+    const id = decodeURIComponent(
+      location.hash.substring(1)
+    );
+
+    const destino = document.getElementById(id);
+
+    if (destino) {
+      destino.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, [location.pathname, location.hash]);
+
+  const enlaces = [
+    { nombre: 'Inicio', ruta: '/#inicio' },
+    { nombre: 'Nosotros', ruta: '/#nosotros' },
+    { nombre: 'Servicios', ruta: '/#servicios' },
+    { nombre: 'Proyectos', ruta: '/proyectos' },
+    { nombre: 'Contacto', ruta: '/#contacto' },
+  ];
 
   return (
     <header className="navbar">
       <div className="navbar-container">
 
-        {/* LOGOTIPO Y NOMBRE */}
-        <a
-          href="#inicio"
+        {/* LOGOTIPO */}
+        <Link
+          to="/"
           className="logo-link"
           onClick={cerrarMenu}
         >
           <img
             src={logoAVV}
-            alt="Logotipo Taller de Arquitectura AVV"
+            alt="Taller de Arquitectura AVV"
             className="logo-img"
           />
 
           <span className="nombre-empresa">
             TALLER DE ARQUITECTURA AVV
           </span>
-        </a>
+        </Link>
 
         {/* FONDO OSCURO */}
         <div
@@ -64,7 +119,7 @@ function Navbar() {
           aria-hidden="true"
         />
 
-        {/* PANEL LATERAL */}
+        {/* MENÚ LATERAL */}
         <nav
           id="menu-principal"
           className={`nav-links ${
@@ -77,35 +132,43 @@ function Navbar() {
             <span>Menú</span>
           </div>
 
-          <a href="#inicio" onClick={cerrarMenu}>
-            Inicio
-          </a>
+          {enlaces.map((enlace) => (
+            <Link
+              key={enlace.nombre}
+              to={enlace.ruta}
+              onClick={(evento) => {
+                cerrarMenu();
 
-          <a href="#nosotros" onClick={cerrarMenu}>
-            Nosotros
-          </a>
+                const rutaActual =
+                  location.pathname + location.hash;
 
-          <a href="#servicios" onClick={cerrarMenu}>
-            Servicios
-          </a>
+                if (rutaActual === enlace.ruta &&
+                    enlace.ruta.includes('#')) {
+                  const id = enlace.ruta.split('#')[1];
 
-          <a href="#proyectos" onClick={cerrarMenu}>
-            Proyectos
-          </a>
-
-          <a href="#contacto" onClick={cerrarMenu}>
-            Contacto
-          </a>
+                  document
+                    .getElementById(id)
+                    ?.scrollIntoView({
+                      behavior: 'smooth',
+                    });
+                }
+              }}
+            >
+              {enlace.nombre}
+            </Link>
+          ))}
         </nav>
 
-        {/* ÚNICO BOTÓN PARA ABRIR Y CERRAR */}
+        {/* ÚNICO BOTÓN HAMBURGUESA */}
         <button
           type="button"
           className={`menu-toggle ${
             menuAbierto ? 'menu-abierto' : ''
           }`}
           aria-label={
-            menuAbierto ? 'Ocultar menú' : 'Mostrar menú'
+            menuAbierto
+              ? 'Ocultar menú'
+              : 'Mostrar menú'
           }
           aria-expanded={menuAbierto}
           aria-controls="menu-principal"

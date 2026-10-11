@@ -1,0 +1,409 @@
+
+
+/* ==========================================
+   TALLER DE ARQUITECTURA AVV
+   SECCIÓN SERVICIOS
+   TARJETAS CON FOTOGRAFÍAS
+========================================== */
+
+/* 1. SECCIÓN PRINCIPAL */
+
+.servicios-seccion {
+  width: 100%;
+  padding: 110px 7%;
+  background: #f5f5f2;
+  color: #161616;
+  scroll-margin-top: 110px;
+}
+
+.servicios-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 2. ENCABEZADO */
+
+.servicios-encabezado {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: end;
+  gap: 60px;
+  margin-bottom: 65px;
+}
+
+.servicios-etiqueta {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #888888;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.servicios-introduccion h2 {
+  margin: 0;
+  color: #161616;
+  font-size: clamp(34px, 4.5vw, 60px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.servicios-descripcion {
+  max-width: 440px;
+  margin: 0 0 8px;
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* 3. CUADRÍCULA */
+
+.servicios-lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* 4. TARJETAS */
+
+.servicios-tarjeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e8e8e5;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.servicios-tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+}
+
+/* 5. CONTENEDOR DE FOTOGRAFÍAS */
+
+.servicios-imagen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #ececea;
+}
+
+/* FOTOGRAFÍA REAL */
+
+.servicios-fotografia {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+.servicios-tarjeta:hover .servicios-fotografia {
+  transform: scale(1.04);
+}
+
+/* 6. ESPACIO PARA FOTOS PENDIENTES */
+
+.servicios-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  text-align: center;
+
+  background: #ededeb;
+}
+
+.servicios-placeholder-icono {
+  font-size: 48px;
+  font-weight: 300;
+  color: #aaaaaa;
+}
+
+.servicios-placeholder p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #777777;
+}
+
+.servicios-placeholder > span:last-child {
+  max-width: 100%;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #999999;
+  overflow-wrap: anywhere;
+}
+
+/* 7. CUERPO DE TARJETA */
+
+.servicios-tarjeta-cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 32px;
+}
+
+.servicios-tarjeta-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.servicios-numero {
+  color: #aaaaaa;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.servicios-categoria {
+  color: #888888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+/* 8. TÍTULOS Y DESCRIPCIONES */
+
+.servicios-tarjeta-contenido {
+  margin: 35px 0;
+  flex: 1;
+}
+
+.servicios-tarjeta h3 {
+  margin: 0 0 18px;
+  color: #161616;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+.servicios-tarjeta p {
+  color: #666666;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* CONSERVAR EL TEXTO DEL PLACEHOLDER */
+
+.servicios-placeholder p {
+  color: #777777;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 9. ENLACES A PORTAFOLIO */
+
+.servicios-tarjeta-enlace {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 14px;
+
+  padding-bottom: 8px;
+  border-bottom: 1px solid #111111;
+
+  color: #111111;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: gap 0.3s ease;
+}
+
+.servicios-tarjeta-enlace:hover {
+  gap: 22px;
+}
+
+/* 10. LLAMADO A LA ACCIÓN */
+
+.servicios-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+
+  margin-top: 80px;
+  padding: 50px;
+  background: #171717;
+  color: #ffffff;
+}
+
+.servicios-cta-etiqueta {
+  display: block;
+  margin-bottom: 18px;
+  color: #bbbbbb;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.servicios-cta h3 {
+  max-width: 600px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.servicios-cta-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-shrink: 0;
+
+  padding: 17px 25px;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+
+  color: #111111;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.servicios-cta-boton:hover {
+  background: #eaeaea;
+  transform: translateY(-2px);
+}
+
+/* 11. ACCESIBILIDAD */
+
+.servicios-tarjeta-enlace:focus-visible,
+.servicios-cta-boton:focus-visible {
+  outline: 3px solid #258cce;
+  outline-offset: 4px;
+}
+
+/* 12. TABLETAS */
+
+@media (max-width: 1050px) {
+  .servicios-seccion {
+    padding: 85px 6%;
+  }
+
+  .servicios-encabezado {
+    gap: 35px;
+  }
+
+  .servicios-tarjeta-cuerpo {
+    padding: 26px;
+  }
+
+  .servicios-cta {
+    padding: 38px;
+  }
+}
+
+/* 13. CELULARES */
+
+@media (max-width: 700px) {
+  .servicios-seccion {
+    padding: 75px 7%;
+    scroll-margin-top: 85px;
+  }
+
+  .servicios-encabezado {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 40px;
+  }
+
+  .servicios-etiqueta {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .servicios-introduccion h2 {
+    font-size: clamp(30px, 8vw, 43px);
+  }
+
+  .servicios-descripcion {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .servicios-lista {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .servicios-imagen {
+    aspect-ratio: 16 / 10;
+  }
+
+  .servicios-tarjeta-cuerpo {
+    padding: 25px;
+  }
+
+  .servicios-tarjeta h3 {
+    font-size: 27px;
+  }
+
+  .servicios-tarjeta p {
+    font-size: 14px;
+  }
+
+  .servicios-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    margin-top: 55px;
+    padding: 30px 25px;
+  }
+
+  .servicios-cta h3 {
+    font-size: 29px;
+  }
+}
+
+/* 14. PANTALLAS PEQUEÑAS */
+
+@media (max-width: 380px) {
+  .servicios-seccion {
+    padding: 60px 6%;
+  }
+
+  .servicios-tarjeta-cuerpo {
+    padding: 22px;
+  }
+
+  .servicios-cta {
+    padding: 25px 20px;
+  }
+}
+
+/* 15. MOVIMIENTO REDUCIDO */
+
+@media (prefers-reduced-motion: reduce) {
+  .servicios-tarjeta,
+  .servicios-fotografia,
+  .servicios-tarjeta-enlace,
+  .servicios-cta-boton {
+    transition: none;
+  }
+}
+

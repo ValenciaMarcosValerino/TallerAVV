@@ -1,0 +1,386 @@
+
+/* ==========================================
+   TALLER DE ARQUITECTURA AVV
+   PORTAFOLIO DE PROYECTOS
+========================================== */
+
+/* 1. SECCIÓN PRINCIPAL */
+
+.proyectos-seccion {
+  width: 100%;
+  padding: 110px 7%;
+  background: #ffffff;
+  color: #161616;
+  scroll-margin-top: 110px;
+}
+
+.proyectos-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 2. ENCABEZADO */
+
+.proyectos-encabezado {
+  margin-bottom: 50px;
+}
+
+.proyectos-etiqueta {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #888888;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.proyectos-presentacion {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 45px;
+}
+
+.proyectos-presentacion h2 {
+  margin: 0;
+  color: #161616;
+  font-size: clamp(34px, 4.5vw, 60px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.proyectos-presentacion p {
+  max-width: 425px;
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* 3. FILTROS */
+
+.proyectos-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 45px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.proyectos-filtro {
+  padding: 12px 18px;
+
+  background: transparent;
+  border: 1px solid #dedede;
+
+  color: #555555;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.proyectos-filtro:hover {
+  border-color: #111111;
+  color: #111111;
+}
+
+.proyectos-filtro.activo {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+/* 4. GALERÍA */
+
+.proyectos-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 35px 25px;
+}
+
+/* 5. TARJETA */
+
+.proyecto-card {
+  min-width: 0;
+  background: #ffffff;
+}
+
+/* 6. FOTOGRAFÍA */
+
+.proyecto-imagen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #ededeb;
+}
+
+.proyecto-fotografia {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+.proyecto-card:hover .proyecto-fotografia {
+  transform: scale(1.035);
+}
+
+/* 7. ESPACIO RESERVADO */
+
+.proyecto-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+
+  background: #ededeb;
+  text-align: center;
+}
+
+.proyecto-placeholder-icono {
+  font-size: 55px;
+  font-weight: 300;
+  color: #aaaaaa;
+}
+
+.proyecto-placeholder p {
+  margin: 0;
+  color: #777777;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.proyecto-placeholder > span:last-child {
+  color: #999999;
+  font-size: 12px;
+}
+
+/* 8. INFORMACIÓN */
+
+.proyecto-info {
+  padding: 25px 0 15px;
+}
+
+.proyecto-numero {
+  display: block;
+  margin-bottom: 15px;
+
+  color: #999999;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.proyecto-info h3 {
+  margin: 0 0 12px;
+
+  color: #161616;
+  font-size: clamp(23px, 2.5vw, 32px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.proyecto-info p {
+  color: #777777;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 9. LLAMADO A LA ACCIÓN */
+
+.proyectos-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+
+  margin-top: 95px;
+  padding: 45px 0;
+
+  border-top: 1px solid #e6e6e6;
+}
+
+.proyectos-footer-etiqueta {
+  display: inline-block;
+  margin-bottom: 20px;
+
+  color: #888888;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.proyectos-footer h3 {
+  max-width: 620px;
+  margin: 0;
+
+  color: #161616;
+  font-size: clamp(25px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.proyectos-contacto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-shrink: 0;
+
+  padding: 17px 24px;
+  background: #111111;
+  border: 1px solid #111111;
+
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.proyectos-contacto:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+/* 10. ACCESIBILIDAD */
+
+.proyectos-filtro:focus-visible,
+.proyectos-contacto:focus-visible {
+  outline: 3px solid #258cce;
+  outline-offset: 4px;
+}
+
+/* 11. TABLETAS */
+
+@media (max-width: 1050px) {
+  .proyectos-seccion {
+    padding: 85px 6%;
+  }
+
+  .proyectos-presentacion {
+    gap: 30px;
+  }
+
+  .proyectos-presentacion p {
+    font-size: 15px;
+  }
+
+  .proyectos-grid {
+    gap: 30px 20px;
+  }
+}
+
+/* 12. CELULARES */
+
+@media (max-width: 700px) {
+  .proyectos-seccion {
+    padding: 75px 7%;
+    scroll-margin-top: 85px;
+  }
+
+  .proyectos-etiqueta {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .proyectos-presentacion {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .proyectos-presentacion h2 {
+    font-size: clamp(30px, 8vw, 43px);
+  }
+
+  .proyectos-presentacion p {
+    font-size: 15px;
+  }
+
+  .proyectos-filtros {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .proyectos-filtro {
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+
+  .proyectos-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .proyecto-info {
+    padding: 20px 0;
+  }
+
+  .proyecto-info h3 {
+    font-size: 26px;
+  }
+
+  .proyectos-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    margin-top: 55px;
+    padding: 35px 0;
+  }
+
+  .proyectos-footer h3 {
+    font-size: 29px;
+  }
+}
+
+/* 13. PANTALLAS PEQUEÑAS */
+
+@media (max-width: 380px) {
+  .proyectos-seccion {
+    padding: 60px 6%;
+  }
+
+  .proyectos-filtro {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  .proyectos-contacto {
+    width: 100%;
+  }
+}
+
+/* 14. REDUCIR MOVIMIENTO */
+
+@media (prefers-reduced-motion: reduce) {
+  .proyecto-fotografia,
+  .proyectos-filtro,
+  .proyectos-contacto {
+    transition: none;
+  }
+}

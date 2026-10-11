@@ -1,29 +1,75 @@
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
+
 import './App.css';
 
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Nosotros from './components/Nosotros';
-import Servicios from './components/Servicios';
-import Proyectos from './components/Proyectos';
-import Contacto from './components/Contacto';
 import Footer from './components/Footer';
+
+import Inicio from './pages/Inicio';
+import Portafolio from './pages/Portafolio';
+import CategoriaProyectos from './pages/CategoriaProyectos';
+import DetalleProyecto from './pages/DetalleProyectos';
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
+    <BrowserRouter>
+      <div className="app">
 
-      <main>
-        <Hero />
-        <Nosotros />
-        <Servicios />
-        <Proyectos />
-        <Contacto />
-      </main>
+        <Navbar />
 
-      <Footer />
-    </div>
+        <Routes>
+
+          {/* PÁGINA PRINCIPAL */}
+          <Route
+            path="/"
+            element={<Inicio />}
+          />
+
+          {/* PORTAFOLIO GENERAL */}
+          <Route
+            path="/proyectos"
+            element={<Portafolio />}
+          />
+
+          {/* CATEGORÍAS */}
+          <Route
+            path="/proyectos/:categoriaId"
+            element={<CategoriaProyectos />}
+          />
+
+          {/* DETALLE DE CADA OBRA */}
+          <Route
+            path="/proyecto/:proyectoId"
+            element={<DetalleProyecto />}
+          />
+
+          {/* RUTA NO ENCONTRADA */}
+          <Route
+            path="*"
+            element={
+              <main
+                className="seccion"
+                style={{ minHeight: '60vh' }}
+              >
+                <h1>Página no encontrada</h1>
+                <p>
+                  La dirección solicitada no existe.
+                </p>
+              </main>
+            }
+          />
+
+        </Routes>
+
+        <Footer />
+
+      </div>
+    </BrowserRouter>
   );
 }
 
