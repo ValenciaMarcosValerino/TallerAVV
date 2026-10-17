@@ -1,0 +1,35 @@
+
+# ==========================================
+# TALLER DE ARQUITECTURA AVV
+# ARCHIVOS EXCLUIDOS DE GITHUB
+# ==========================================
+
+# Dependencias Node.js
+node_modules/
+
+# Credenciales privadas
+.env
+.env.*
+!.env.example
+
+# Archivos de compilacion
+dist/
+build/
+coverage/
+
+# Registros y archivos temporales
+*.log
+logs/
+*.tmp
+
+# Respaldos de SQL Server
+*.bak
+*.mdf
+*.ldf
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuracion local de VS Code
+.vscode/

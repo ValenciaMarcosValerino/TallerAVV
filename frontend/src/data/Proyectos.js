@@ -1,81 +1,128 @@
 
-/*
-  TALLER DE ARQUITECTURA AVV
-  CATÁLOGO TEMPORAL DE PROYECTOS
-*/
+/* ==========================================
+   TALLER DE ARQUITECTURA AVV
+   CATÁLOGO DE PROYECTOS
+========================================== */
 
-// Categorías oficiales de nuestro portafolio visual
-
+// CATEGORÍAS DISPONIBLES
 export const categorias = [
   {
     id: 'diseno-arquitectonico',
     nombre: 'Diseño arquitectónico',
     descripcion:
-      'Propuestas arquitectónicas y diseño de espacios.',
+      'Propuestas arquitectónicas que integran diseño, funcionalidad y las necesidades de cada espacio.',
     imagen: 'ProyectoDisArquitectonicoAVV',
   },
   {
     id: 'construccion',
     nombre: 'Construcción',
     descripcion:
-      'Proyectos de construcción y ejecución de obra.',
+      'Desarrollo de proyectos constructivos, desde la planeación hasta su ejecución.',
     imagen: 'ProyectoConstruccionAVV',
   },
   {
     id: 'remodelaciones',
     nombre: 'Remodelaciones',
     descripcion:
-      'Transformación y renovación de espacios existentes.',
+      'Transformación y renovación de espacios para mejorar su funcionalidad y apariencia.',
     imagen: 'ProyectoRemodelacionAVV',
   },
   {
     id: 'visualizacion-3d',
     nombre: 'Visualización 3D',
     descripcion:
-      'Renders y representaciones arquitectónicas.',
+      'Representaciones tridimensionales para visualizar propuestas y soluciones arquitectónicas.',
     imagen: 'ProyectoVisualizacion3DAVV',
   },
 ];
 
-/*
-  Agregaremos aquí los proyectos reales.
+/* ==========================================
+   PLANTILLA DE PROYECTO
 
-  Estructura que utilizaremos:
+   IMPORTANTE:
+   - No es una obra real.
+   - No aparece en el portafolio público.
+   - Sirve para preparar y probar la galería.
+========================================== */
 
-  {
-    id: 'nombre-del-proyecto',
-    nombre: 'Nombre real del proyecto',
-    categoria: 'remodelaciones',
-    descripcion: 'Descripción de la obra',
-    portada: 'NombreImagenPortada',
-    imagenes: [
-      'NombreFoto01',
-      'NombreFoto02',
-      'NombreFoto03'
-    ]
-  }
+const plantillaProyecto = {
+  id: 'plantilla-avv',
 
-  No registrar obras ficticias.
-*/
+  nombre: 'Plantilla de proyecto AVV',
 
-export const proyectos = [];
+  categoria: 'remodelaciones',
 
-// Funciones para consultar la información
+  descripcion:
+    'Vista de preparación para incorporar fotografías y evidencias de una obra.',
 
+  ubicacion: '',
+  anio: '',
+
+  // false evita mostrarla en el catálogo público
+  publicado: false,
+
+  // true muestra una obra publicada en Inicio
+  destacado: false,
+
+  // Fotografía principal
+  portada: null,
+
+  // Evidencias fotográficas
+  evidencias: {
+    antes: [
+      null,
+      null,
+    ],
+
+    proceso: [
+      null,
+      null,
+    ],
+
+    despues: [
+      null,
+      null,
+    ],
+  },
+};
+
+/* ==========================================
+   PROYECTOS REGISTRADOS
+
+   Cuando recibamos las fotografías reales,
+   agregaremos aquí cada proyecto.
+========================================== */
+
+export const proyectos = [
+  plantillaProyecto,
+];
+
+/* ==========================================
+   FUNCIONES DE CONSULTA
+========================================== */
+
+// Buscar una categoría por identificador
 export function obtenerCategoria(id) {
   return categorias.find(
     (categoria) => categoria.id === id
   );
 }
 
+// Consultar únicamente proyectos publicados
+// pertenecientes a una categoría
 export function obtenerProyectosCategoria(categoriaId) {
   return proyectos.filter(
-    (proyecto) => proyecto.categoria === categoriaId
+    (proyecto) =>
+      proyecto.categoria === categoriaId &&
+      proyecto.publicado !== false
   );
 }
 
+// Buscar un proyecto, incluso si aún no está publicado.
+// Esto permite revisar la plantilla directamente por URL.
 export function obtenerProyecto(id) {
   return proyectos.find(
     (proyecto) => proyecto.id === id
   );
 }
+

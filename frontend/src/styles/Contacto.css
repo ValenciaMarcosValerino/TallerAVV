@@ -1,0 +1,503 @@
+
+/* ==========================================
+   TALLER DE ARQUITECTURA AVV
+   CONTACTO Y COTIZACIONES
+========================================== */
+
+.contacto-avv {
+  width: 100%;
+  padding: 110px 7%;
+  background: #f7f7f5;
+  color: #171717;
+  scroll-margin-top: 85px;
+}
+
+.contacto-avv *,
+.contacto-avv *::before,
+.contacto-avv *::after {
+  box-sizing: border-box;
+}
+
+.contacto-avv__contenedor {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ENCABEZADO */
+
+.contacto-avv__encabezado {
+  max-width: 800px;
+  margin-bottom: 65px;
+}
+
+.contacto-avv__etiqueta {
+  display: block;
+  margin-bottom: 25px;
+  color: #858585;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.contacto-avv__encabezado h2 {
+  margin: 0 0 24px;
+  color: #151515;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -1.6px;
+}
+
+.contacto-avv__encabezado > p {
+  max-width: 610px;
+  margin: 0;
+  color: #686868;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* DISTRIBUCIÓN */
+
+.contacto-avv__distribucion {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr)
+                         minmax(0, 1.15fr);
+  align-items: start;
+  gap: 70px;
+}
+
+/* COLUMNA INFORMATIVA */
+
+.contacto-avv__informacion {
+  padding-top: 25px;
+}
+
+.contacto-avv__subtitulo {
+  display: block;
+  margin-bottom: 25px;
+  color: #888888;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.contacto-avv__informacion h3 {
+  max-width: 470px;
+  margin: 0 0 25px;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -1px;
+}
+
+.contacto-avv__informacion > p {
+  max-width: 430px;
+  margin: 0;
+  color: #686868;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.contacto-avv__nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 440px;
+  margin-top: 65px;
+  padding-top: 25px;
+  border-top: 1px solid #ddddda;
+}
+
+.contacto-avv__nota > span {
+  color: #111111;
+  font-size: 25px;
+}
+
+.contacto-avv__nota p {
+  margin: 0;
+  color: #777777;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* PANEL DEL FORMULARIO */
+
+.contacto-avv__panel {
+  min-width: 0;
+  padding: 38px;
+  background: #ffffff;
+  border: 1px solid #e5e5e3;
+}
+
+.contacto-avv__panel-cabecera {
+  margin-bottom: 25px;
+}
+
+.contacto-avv__panel-cabecera > span {
+  color: #999999;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.contacto-avv__panel-cabecera p {
+  margin: 11px 0 0;
+  color: #181818;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+/* SELECTOR */
+
+.contacto-avv__selector {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 32px;
+  padding: 5px;
+  background: #f0f0ee;
+}
+
+.contacto-avv__opcion {
+  min-height: 48px;
+  padding: 11px 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #747474;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.contacto-avv__opcion--activa {
+  background: #171717;
+  color: #ffffff;
+}
+
+.contacto-avv__opcion:not(
+  .contacto-avv__opcion--activa
+):hover {
+  background: #e3e3e0;
+  color: #111111;
+}
+
+/* CAMPOS */
+
+.contacto-avv__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.contacto-avv__fila {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contacto-avv__campo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 10px;
+}
+
+.contacto-avv__campo label {
+  color: #333333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.contacto-avv__campo input,
+.contacto-avv__campo select,
+.contacto-avv__campo textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 15px 16px;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  background: #fafaf9;
+  color: #181818;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.contacto-avv__campo input,
+.contacto-avv__campo select {
+  min-height: 51px;
+}
+
+.contacto-avv__campo textarea {
+  min-height: 145px;
+  resize: vertical;
+}
+
+.contacto-avv__campo input::placeholder,
+.contacto-avv__campo textarea::placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+.contacto-avv__campo input:focus,
+.contacto-avv__campo select:focus,
+.contacto-avv__campo textarea:focus {
+  border-color: #171717;
+  background: #ffffff;
+}
+
+.contacto-avv__campo select {
+  cursor: pointer;
+}
+
+.contacto-avv__contador {
+  align-self: flex-end;
+  color: #999999;
+  font-size: 11px;
+}
+
+/* AVISO */
+
+.contacto-avv__aviso {
+  margin: 0;
+  color: #888888;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* BOTONES */
+
+.contacto-avv__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+}
+
+.contacto-avv__enviar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 52px;
+  padding: 15px 22px;
+  border: 1px solid #171717;
+  background: #171717;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contacto-avv__enviar:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+.contacto-avv__limpiar {
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: #777777;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.contacto-avv__limpiar:hover {
+  color: #171717;
+}
+
+/* VISTA PREVIA */
+
+.contacto-avv__resultado {
+  margin-top: 35px;
+  padding-top: 30px;
+  border-top: 1px solid #dddddd;
+}
+
+.contacto-avv__resultado h3 {
+  margin: 0 0 10px;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.contacto-avv__resultado > p {
+  margin: 0 0 18px;
+  color: #777777;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.contacto-avv__vista-previa {
+  display: block;
+  width: 100%;
+  min-height: 230px;
+  padding: 18px;
+  border: 1px solid #dedede;
+  background: #f7f7f5;
+  color: #333333;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.8;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.contacto-avv__copiar {
+  margin-top: 18px;
+  padding: 14px 20px;
+  border: 1px solid #171717;
+  background: transparent;
+  color: #171717;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contacto-avv__copiar:hover {
+  background: #171717;
+  color: #ffffff;
+}
+
+.contacto-avv__mensaje-copia {
+  margin-top: 15px !important;
+  color: #555555 !important;
+}
+
+/* ACCESIBILIDAD */
+
+.contacto-avv button:focus-visible,
+.contacto-avv input:focus-visible,
+.contacto-avv textarea:focus-visible,
+.contacto-avv select:focus-visible {
+  outline: 2px solid #3f83b0;
+  outline-offset: 3px;
+}
+
+/* TABLETAS */
+
+@media (max-width: 1050px) {
+  .contacto-avv {
+    padding: 85px 6%;
+  }
+
+  .contacto-avv__distribucion {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contacto-avv__informacion {
+    padding-top: 0;
+  }
+
+  .contacto-avv__nota {
+    margin-top: 30px;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 650px) {
+  .contacto-avv {
+    padding: 75px 6%;
+  }
+
+  .contacto-avv__encabezado {
+    margin-bottom: 40px;
+  }
+
+  .contacto-avv__encabezado h2 {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+
+  .contacto-avv__encabezado > p {
+    font-size: 14px;
+  }
+
+  .contacto-avv__informacion h3 {
+    font-size: 30px;
+  }
+
+  .contacto-avv__panel {
+    padding: 24px 18px;
+  }
+
+  .contacto-avv__fila {
+    grid-template-columns: 1fr;
+    gap: 23px;
+  }
+
+  .contacto-avv__opcion {
+    font-size: 12px;
+    padding: 10px 5px;
+  }
+
+  .contacto-avv__acciones {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contacto-avv__enviar,
+  .contacto-avv__limpiar,
+  .contacto-avv__copiar {
+    width: 100%;
+  }
+}
+
+/* PANTALLAS MUY PEQUEÑAS */
+
+@media (max-width: 380px) {
+  .contacto-avv__selector {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-avv__panel {
+    padding: 20px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contacto-avv__opcion,
+  .contacto-avv__campo input,
+  .contacto-avv__campo select,
+  .contacto-avv__campo textarea,
+  .contacto-avv__enviar {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   VALIDACIONES DEL FORMULARIO AVV
+========================================== */
+
+.contacto-avv__error {
+  display: block;
+  margin-top: 2px;
+  color: #ba2929;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contacto-avv__campo input[aria-invalid="true"],
+.contacto-avv__campo select[aria-invalid="true"],
+.contacto-avv__campo textarea[aria-invalid="true"] {
+  border-color: #ba2929;
+  background: #fffafa;
+}
